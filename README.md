@@ -23,6 +23,8 @@
 
 Build upon [Twig.js](https://github.com/justjohn/twig.js) , the JS port of the Twig templating language by John Roepke
 
+Currently i'm looking into [atpl.js](https://github.com/soywiz/atpl.js) as well
+
 # Usage
 
 ## Install
