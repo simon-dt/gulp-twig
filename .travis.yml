@@ -5,5 +5,8 @@ node_js:
 addons:
   code_climate:
     repo_token: 6104446f9f5bb3d1929ac114cf679f7d134d2caaae2bd548a1de8c3f508cfb75
+before_script:
+  - npm install -g istanbul
 after_script:
-  - cat lcov.info | codeclimate
+  - istanbul cover node_modules/.bin/_mocha
+  - cat coverage/lcov.info | codeclimate
