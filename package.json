@@ -1,0 +1,41 @@
+{
+    "name": "gulp-twig",
+    "description": "Twig.js plugin for gulp.js (gulpjs.com)",
+    "version": "0.0.1",
+    "homepage": "http://github.com/zimmen/gulp-twig",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/zimmen/gulp-twig.git"
+    },
+    "author": "Simon de Turck <simon@zimmen.com> (http://www.zimmen.com)",
+    "main": "./index.js",
+    "dependencies": {
+        "twig": "^0.7.2",
+        "map-stream": "^0.1.0",
+        "replace-ext": "0.0.1"
+    },
+    "devDependencies": {
+        "gulp-util": "^2.2.14",
+        "mocha": "*",
+        "should": "*"
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "engines": {
+        "node": ">= 0.9.0"
+    },
+    "keywords": [
+        "twig",
+        "twig.js",
+        "gulp",
+        "gulpplugin",
+        "gulp-plugin"
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://github.com/zimmen/gulp-twig/raw/master/LICENSE"
+        }
+    ]
+}
