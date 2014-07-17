@@ -1,7 +1,7 @@
 # gulp-twig
 [![Build Status](https://travis-ci.org/zimmen/gulp-twig.png?branch=master)](https://travis-ci.org/zimmen/gulp-twig)
 
-> Compile [Twig.js](https://github.com/justjohn/twig.js) templates with Gulp
+###Compile [Twig.js](https://github.com/justjohn/twig.js) templates with Gulp
 
 <table>
 <tr> 
@@ -19,9 +19,9 @@
 <td>Gulp Version</td>
 <td>3.x</td>
 </tr>
-<td>Build upon</td>
-<td>[Twig.js](https://github.com/justjohn/twig.js), the JS port of the Twig templating language by John Roepke</td>
 </table>
+
+Build upon [Twig.js](https://github.com/justjohn/twig.js) , the JS port of the Twig templating language by John Roepke
 
 # Usage
 
