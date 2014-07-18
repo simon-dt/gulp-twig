@@ -4,27 +4,6 @@
 [![Test Coverage](https://codeclimate.com/github/zimmen/gulp-twig/coverage.png)](https://codeclimate.com/github/zimmen/gulp-twig)
 
 
-<table>
-<tr> 
-<td>obligatory badges</td>
-<td>obligatory badges</td>
-<td>obligatory badges</td>
-</tr>
-<tr>
-<td>Description</td>
-<td>Twig plugin for gulp.js, The streaming build system</td>
-</tr>
-<tr>
-<td>Node Version</td>
-<td>>= 0.10</td>
-</tr>
-<tr>
-<td>Gulp Version</td>
-<td>3.x</td>
-</tr>
-</table>
-
-
 # gulp-twig
 
 ###Compile [Twig.js](https://github.com/justjohn/twig.js) templates with Gulp
