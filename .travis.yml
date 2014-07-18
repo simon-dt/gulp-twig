@@ -2,14 +2,12 @@ language: node_js
 node_js:
   - 0.10
   - 0.11
-env:
-  - XUNIT_FILE=shippable/testresults/result.xml
-before_script:
-  - mkdir -p shippable/testresults
-  - mkdir -p shippable/codecoverage
+addons:
+  code_climate:
+    repo_token:6104446f9f5bb3d1929ac114cf679f7d134d2caaae2bd548a1de8c3f508cfb75
 before_install:
   - npm install -g istanbul
-  - npm install xunit-file
 after_script:
-  - istanbul cover node_modules/.bin/_mocha -- -u tdd
-  - istanbul report cobertura --dir  shippable/codecoverage/
+  after_script:
+    - istanbul cover node_modules/.bin/_mocha
+    - cat coverage/lcov.info | codeclimate
