@@ -7,4 +7,4 @@ before_install:
   - npm install -g codeclimate-test-reporter
 after_script:
   - istanbul cover node_modules/.bin/_mocha
-  - CODECLIMATE_REPO_TOKEN=6104446f9f5bb3d1929ac114cf679f7d134d2caaae2bd548a1de8c3f508cfb75 codeclimate < lcov.info
+  - CODECLIMATE_REPO_TOKEN=6104446f9f5bb3d1929ac114cf679f7d134d2caaae2bd548a1de8c3f508cfb75 codeclimate < coverage/lcov.info
