@@ -8,6 +8,5 @@ addons:
 before_install:
   - npm install -g istanbul
 after_script:
-  after_script:
-    - istanbul cover node_modules/.bin/_mocha
-    - cat coverage/lcov.info | codeclimate
+  - istanbul cover node_modules/.bin/_mocha
+  - cat coverage/lcov.info | codeclimate
