@@ -1,5 +1,10 @@
-# gulp-twig
+######obligatory badges
 [![Build Status](https://travis-ci.org/zimmen/gulp-twig.png?branch=master)](https://travis-ci.org/zimmen/gulp-twig)
+[![Code Climate](https://codeclimate.com/github/zimmen/gulp-twig.png)](https://codeclimate.com/github/zimmen/gulp-twig)
+[![Test Coverage](https://codeclimate.com/github/zimmen/gulp-twig/coverage.png)](https://codeclimate.com/github/zimmen/gulp-twig)
+
+
+# gulp-twig
 
 ###Compile [Twig.js](https://github.com/justjohn/twig.js) templates with Gulp
 
