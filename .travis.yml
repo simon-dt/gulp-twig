@@ -9,6 +9,7 @@ before_script:
   - mkdir -p shippable/codecoverage
 before_install:
   - npm install -g istanbul
+  - npm install -g xunit-file
 after_script:
   - istanbul cover node_modules/.bin/_mocha -- -u tdd
   - istanbul report cobertura --dir  shippable/codecoverage/
