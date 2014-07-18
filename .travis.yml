@@ -10,5 +10,5 @@ before_script:
 before_install:
   - npm install -g istanbul
 after_script:
-  - ./node_modules/.bin/istanbul cover grunt -- -u tdd
-  - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
+  - istanbul cover node_modules/.bin/_mocha -- -u tdd
+  - istanbul report cobertura --dir  shippable/codecoverage/
