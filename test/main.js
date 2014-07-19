@@ -32,4 +32,42 @@ describe('gulp-twig', function () {
         twg.write(fakeFile);
     });
 
+    it('should compile twig templates to html files without options', function (done) {
+        var twg = twig();
+
+        var fakeFile = new gutil.File({
+            base: "test/",
+            cwd: "test/",
+            path: path.join(__dirname, '/templates/file.twig'),
+            contents: fs.readFileSync(__dirname + '/templates/file.twig')
+        });
+
+        twg.on('data', function (newFile) {
+            should.exist(newFile);
+            should.exist(newFile.contents);
+            should.exist(newFile.path);
+            String(newFile.contents).should.equal(fs.readFileSync(__dirname + '/expected/file-noopts.html', 'utf8'));
+            done();
+        });
+        twg.write(fakeFile);
+    });
+
+    it('should return \'null\' file when no file put in', function (done) {
+        var twg = twig();
+
+        var fakeFile = new gutil.File({
+            base: "test/",
+            cwd: "test/"
+        });
+
+        twg.on('data', function (newFile) {
+            should.exist(newFile);
+            should.not.exist(newFile.contents);
+            should.not.exist(newFile.path);
+            String(newFile.contents).should.equal('null');
+            done();
+        });
+        twg.write(fakeFile);
+    });
+
 });
