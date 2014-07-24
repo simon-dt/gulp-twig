@@ -22,7 +22,9 @@ module.exports = function (options) {
                 path: file.path,
                 async: false
             });
-
+        if(options.cache !== true){
+            Twig.cache(false);
+        }
         file.contents = new Buffer(template.render(options.data));
         file.path = rext(file.path, '.html');
         cb(null, file);
