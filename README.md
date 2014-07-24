@@ -104,6 +104,8 @@ gulp.task('compile', function () {
 gulp.task('default', ['compile']);
 ```
 
+To enable the Twig cache, add `cache:true` to the options object. (not really usefull during development though ;-) )
+
 ## LICENSE
 
 (MIT License)
