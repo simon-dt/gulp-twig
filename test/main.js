@@ -11,13 +11,13 @@ describe('gulp-twig', function () {
     it('should compile twig templates to html files', function (done) {
         var twg = twig({
             data: {
-                title: "twig"
+                title: 'twig'
             }
         });
 
         var fakeFile = new gutil.File({
-            base: "test/",
-            cwd: "test/",
+            base: 'test/',
+            cwd: 'test/',
             path: path.join(__dirname, '/templates/file.twig'),
             contents: fs.readFileSync(__dirname + '/templates/file.twig')
         });
@@ -36,8 +36,8 @@ describe('gulp-twig', function () {
         var twg = twig();
 
         var fakeFile = new gutil.File({
-            base: "test/",
-            cwd: "test/",
+            base: 'test/',
+            cwd: 'test/',
             path: path.join(__dirname, '/templates/file.twig'),
             contents: fs.readFileSync(__dirname + '/templates/file.twig')
         });
@@ -56,8 +56,8 @@ describe('gulp-twig', function () {
         var twg = twig();
 
         var fakeFile = new gutil.File({
-            base: "test/",
-            cwd: "test/"
+            base: 'test/',
+            cwd: 'test/'
         });
 
         twg.on('data', function (newFile) {
