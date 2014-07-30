@@ -38,6 +38,11 @@ module.exports = function (options) {
         }
 
         template = twig(twigOpts);
+        try {
+            file.contents = new Buffer(template.render(options.data));
+        }catch(e){
+            console.log(e);
+        }
         file.path = rext(file.path, '.html');
         cb(null, file);
     }
