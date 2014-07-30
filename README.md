@@ -108,15 +108,15 @@ gulp.task('default', ['compile']);
 
 `base:string` sets the views base folder. Extends can be loaded relative to this path
 
-`errorLogToConsole:true|false` logs errors to console
+`errorLogToConsole:true|false` logs errors to console (defaults to false)
 
 `onError:function` handle error yourself
 
-`cache:true|false` enables the Twig cache. (dafults to false since having it cached not really usefull during development ;-) )
+`cache:true|false` enables the Twig cache. (defaults to false)
 
-`debug:true|false` enables debug info logging
+`debug:true|false` enables debug info logging (defaults to false)
 
-`trace:true|false` enables tracing info logging
+`trace:true|false` enables tracing info logging (defaults to false)
 
 
 To enable tracing ad
