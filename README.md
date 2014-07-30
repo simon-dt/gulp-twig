@@ -104,8 +104,17 @@ gulp.task('compile', function () {
 gulp.task('default', ['compile']);
 ```
 
-To enable the Twig cache, add `cache:true` to the options object. (not really usefull during development though ;-) )
+##Options:
 
+`base:string` sets the views base folder. Extends can be loaded relative to this path
+
+`cache:true|false` enables the Twig cache. (dafults to false since having it cached not really usefull during development ;-) )
+
+`debug:true|false` enables debug info logging
+
+`trace:true|false` enables tracing info logging
+
+To enable tracing ad
 ## LICENSE
 
 (MIT License)
