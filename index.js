@@ -18,14 +18,26 @@ module.exports = function (options) {
 
         var Twig = require('twig'),
             twig = Twig.twig,
-            template = twig({
+            twigOpts = {
                 path: file.path,
                 async: false
-            });
-        if(options.cache !== true){
+            },
+            template;
+
+        if (options.debug !== undefined) {
+            twigOpts.debug = options.debug;
+        }
+        if (options.trace !== undefined) {
+            twigOpts.trace = options.trace;
+        }
+        if (options.base !== undefined) {
+            twigOpts.base = options.base;
+        }
+        if (options.cache !== true) {
             Twig.cache(false);
         }
-        file.contents = new Buffer(template.render(options.data));
+
+        template = twig(twigOpts);
         file.path = rext(file.path, '.html');
         cb(null, file);
     }
