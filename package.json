@@ -10,12 +10,12 @@
     "author": "Simon de Turck <simon@zimmen.com> (http://www.zimmen.com)",
     "main": "./index.js",
     "dependencies": {
+        "gulp-util": "^2.2.14",
         "twig": "^0.7.2",
         "map-stream": "^0.1.0",
         "replace-ext": "0.0.1"
     },
     "devDependencies": {
-        "gulp-util": "^2.2.14",
         "mocha": "*",
         "should": "*"
     },
