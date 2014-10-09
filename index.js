@@ -40,6 +40,12 @@ module.exports = function (options) {
             Twig.cache(false);
         }
 
+        if (options.functions) {
+            options.functions.forEach(function (func) {
+                Twig.extendFunction(func.name, func.func);
+            });
+        }
+
         template = twig(twigOpts);
 
         try {
