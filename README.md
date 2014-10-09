@@ -118,6 +118,8 @@ gulp.task('default', ['compile']);
 
 `trace:true|false` enables tracing info logging (defaults to false)
 
+`functions:array` extends Twig with given function objects. Should have `{ name: "nameOfFunction", func: function (args) { return "the function"; }}` (default to undefined)
+
 
 To enable tracing ad
 ## LICENSE
