@@ -120,6 +120,7 @@ gulp.task('default', ['compile']);
 
 `functions:array` extends Twig with given function objects. Should have `{ name: "nameOfFunction", func: function (args) { return "the function"; }}` (default to undefined)
 
+`extend:function` extends Twig with new tags types. [Read more here](https://github.com/justjohn/twig.js/wiki/Extending-twig.js-With-Custom-Tags)
 
 To enable tracing ad
 ## LICENSE
