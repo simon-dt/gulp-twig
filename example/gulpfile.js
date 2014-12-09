@@ -17,4 +17,20 @@ gulp.task('compile', function () {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('default', ['compile']);
+
+gulp.task('data-example', function () {
+    'use strict';
+
+    var twig = require('gulp-twig');
+    var data = require('gulp-data');
+
+    return gulp.src('./index-json.twig')
+        .pipe(data(function(file) {
+            return require('./example/index-data.json');
+        }))
+        .pipe(twig())
+        .pipe(gulp.dest('./'));
+});
+
+
+gulp.task('default', ['compile', 'data-example']);
