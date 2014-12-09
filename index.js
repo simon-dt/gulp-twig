@@ -46,6 +46,11 @@ module.exports = function (options) {
             });
         }
 
+        if(options.extend) {
+            Twig.extend(options.extend);
+            delete options.extend;
+        }
+
         template = twig(twigOpts);
 
         try {
