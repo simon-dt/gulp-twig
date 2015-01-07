@@ -70,4 +70,29 @@ describe('gulp-twig', function () {
         twg.write(fakeFile);
     });
 
+    it('should accept data from file.data', function (done) {
+        var twg = twig();
+
+        var fakeFile = new gutil.File({
+            base: 'test/',
+            cwd: 'test/',
+            path: path.join(__dirname, '/templates/file.twig'),
+            contents: fs.readFileSync(__dirname + '/templates/file.twig'),
+        });
+
+        // simulate data attribute being added by gulp-data plugin
+        fakeFile['data'] = {
+            title: 'twig'
+        };
+
+        twg.on('data', function (newFile) {
+            should.exist(newFile);
+            should.exist(newFile.contents);
+            should.exist(newFile.path);
+            String(newFile.contents).should.equal(fs.readFileSync(__dirname + '/expected/file.html', 'utf8'));
+            done();
+        });
+        twg.write(fakeFile);
+    });
+
 });

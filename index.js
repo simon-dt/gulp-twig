@@ -11,6 +11,9 @@ module.exports = function (options) {
     }
 
     function modifyContents(file, cb) {
+
+        var data = file.data || options.data || {};
+
         if (file.isNull()) {
             return cb(null, file);
         }
@@ -54,7 +57,7 @@ module.exports = function (options) {
         template = twig(twigOpts);
 
         try {
-            file.contents = new Buffer(template.render(options.data));
+            file.contents = new Buffer(template.render(data));
         }catch(e){
             if (options.errorLogToConsole) {
                 gutil.log(PLUGIN_NAME + ' ' + e);
