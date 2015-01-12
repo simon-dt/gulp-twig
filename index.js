@@ -18,11 +18,6 @@ module.exports = function (options) {
             return cb(null, file);
         }
 
-        var data = options.data || {};
-        if (file.data) {
-          data = file.data;
-        }
-
         if (file.isStream()) {
             return cb(new gutil.PluginError(PLUGIN_NAME, "Streaming not supported!"));
         }
