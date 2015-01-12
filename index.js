@@ -21,6 +21,12 @@ module.exports = function (options) {
         if (file.isStream()) {
             return cb(new gutil.PluginError(PLUGIN_NAME, "Streaming not supported!"));
         }
+        
+        data._file   = file;
+        data._target = {
+            path: rext(file.path, '.html'),
+            relative: rext(file.relative, '.html')
+        };
 
         var Twig = require('twig'),
             twig = Twig.twig,
