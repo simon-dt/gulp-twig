@@ -53,6 +53,12 @@ module.exports = function (options) {
             Twig.extend(options.extend);
             delete options.extend;
         }
+        var data = options.data || {};
+        data._file   = file;
+        data._target = {
+            path: rext(file.path, '.html'),
+            relative: rext(file.relative, '.html')
+        };
 
         template = twig(twigOpts);
 
