@@ -15,6 +15,11 @@ module.exports = function (options) {
             return cb(null, file);
         }
 
+        var data = options.data || {};
+        if (file.data) {
+          data = file.data;
+        }
+
         if (file.isStream()) {
             return cb(new gutil.PluginError(PLUGIN_NAME, "Streaming not supported!"));
         }
@@ -54,7 +59,7 @@ module.exports = function (options) {
         template = twig(twigOpts);
 
         try {
-            file.contents = new Buffer(template.render(options.data));
+            file.contents = new Buffer(template.render(data));
         }catch(e){
             if (options.errorLogToConsole) {
                 gutil.log(PLUGIN_NAME + ' ' + e);
