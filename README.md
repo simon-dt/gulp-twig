@@ -122,7 +122,6 @@ gulp.task('default', ['compile']);
 
 `extend:function` extends Twig with new tags types. [Read more here](https://github.com/justjohn/twig.js/wiki/Extending-twig.js-With-Custom-Tags)
 
-To enable tracing ad
 ## LICENSE
 
 (MIT License)
