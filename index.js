@@ -11,13 +11,11 @@ module.exports = function (options) {
     }
 
     function modifyContents(file, cb) {
+
+        var data = file.data || options.data || {};
+
         if (file.isNull()) {
             return cb(null, file);
-        }
-
-        var data = options.data || {};
-        if (file.data) {
-          data = file.data;
         }
 
         if (file.isStream()) {
