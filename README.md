@@ -1,8 +1,4 @@
-#gulp-twig
-
 [![Build Status](https://travis-ci.org/zimmen/gulp-twig.png?branch=master)](https://travis-ci.org/zimmen/gulp-twig)
-[![Code Climate](https://codeclimate.com/github/zimmen/gulp-twig.png)](https://codeclimate.com/github/zimmen/gulp-twig)
-[![Test Coverage](https://codeclimate.com/github/zimmen/gulp-twig/coverage.png)](https://codeclimate.com/github/zimmen/gulp-twig)
 
 <table>
 <tr>
@@ -22,18 +18,19 @@
 </tr>
 </table>
 
+
 Compile [Twig.js](https://github.com/justjohn/twig.js) templates with Gulp. Build upon [Twig.js](https://github.com/justjohn/twig.js) , the JS port of the Twig templating language by John Roepke. Currently i'm looking into [atpl.js](https://github.com/soywiz/atpl.js) as well.
 
 You can use this plugin with [gulp-data](https://www.npmjs.com/package/gulp-data).
 
-##Usage
+## Usage
 
-###Install
+### Install
 
-```
+```bash
 npm install gulp-twig --save
 ```
-###Example
+### Example
 
 ```html
 {# index.twig #}
@@ -77,7 +74,6 @@ npm install gulp-twig --save
 ```
 
 ```javascript
-// gulpfile.js
 var gulp = require('gulp');
 
 gulp.task('compile', function () {
@@ -100,22 +96,24 @@ gulp.task('compile', function () {
 gulp.task('default', ['compile']);
 ```
 
-###Options:
+### Options:
 
-**base**:string *sets the views base folder. Extends can be loaded relative to this path*
+**base**: [string] *sets the views base folder. Extends can be loaded relative to this path*
 
-**errorLogToConsole**:true|false *logs errors to console (defaults to false)*
+**errorLogToConsole**: [true|false] *logs errors to console (defaults to false)*
 
-**onError**:function *handle error yourself*
+**onError**: [function] *handle error yourself*
 
-**cache**:true|false *enables the Twig cache. (defaults to false)*
+**cache**: [true|false] *enables the Twig cache. (defaults to false)*
 
-**debug**:true|false *enables debug info logging (defaults to false)*
+**debug**: [true|false] *enables debug info logging (defaults to false)*
 
-**trace**:true|false *enables tracing info logging (defaults to false)*
+**trace**: [true|false] *enables tracing info logging (defaults to false)*
 
-**functions**:array *extends Twig with given function objects. (default to undefined)*
-```
+**extend**: [function] *extends Twig with new tags types. [Read more here](https://github.com/justjohn/twig.js/wiki/Extending-twig.js-With-Custom-Tags)*
+
+**functions**: [array] *extends Twig with given function objects. (default to undefined)*
+```javascript
 [
     {
         name: "nameOfFunction",
@@ -125,13 +123,11 @@ gulp.task('default', ['compile']);
     }
 ]
 ```
-**extend**:function *extends Twig with new tags types. [Read more here](https://github.com/justjohn/twig.js/wiki/Extending-twig.js-With-Custom-Tags)*
-
-###LICENSE
+### LICENSE
 
 (MIT License)
 
-Copyright (c) 2014 Simon de Turck <simon@zimmen.com> www.zimmen.com
+Copyright (c) 2015 Simon de Turck <simon@zimmen.com> www.zimmen.com
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

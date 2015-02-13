@@ -1,41 +1,41 @@
 {
-    "name": "gulp-twig",
-    "description": "Twig.js plugin for gulp.js (gulpjs.com)",
-    "version": "0.1.1",
-    "homepage": "http://github.com/zimmen/gulp-twig",
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/zimmen/gulp-twig.git"
-    },
-    "author": "Simon de Turck <simon@zimmen.com> (http://www.zimmen.com)",
-    "main": "./index.js",
-    "dependencies": {
-        "gulp-util": "^2.2.14",
-        "twig": "^0.7.2",
-        "map-stream": "^0.1.0",
-        "replace-ext": "0.0.1"
-    },
-    "devDependencies": {
-        "mocha": "*",
-        "should": "*"
-    },
-    "scripts": {
-        "test": "mocha -R spec"
-    },
-    "engines": {
-        "node": ">= 0.9.0"
-    },
-    "keywords": [
-        "twig",
-        "twig.js",
-        "gulp",
-        "gulpplugin",
-        "gulp-plugin"
-    ],
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "http://github.com/zimmen/gulp-twig/raw/master/LICENSE"
-        }
-    ]
+  "name": "gulp-twig",
+  "description": "Twig.js plugin for gulp.js (gulpjs.com)",
+  "version": "0.2.0",
+  "homepage": "http://github.com/zimmen/gulp-twig",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/zimmen/gulp-twig.git"
+  },
+  "author": "Simon de Turck <simon@zimmen.com> (http://www.zimmen.com)",
+  "main": "./index.js",
+  "dependencies": {
+    "gulp-util": "^2.2.14",
+    "map-stream": "^0.1.0",
+    "replace-ext": "0.0.1",
+    "twig": "justjohn/twig.js@83e4517"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "engines": {
+    "node": ">= 0.9.0"
+  },
+  "keywords": [
+    "twig",
+    "twig.js",
+    "gulp",
+    "gulpplugin",
+    "gulp-plugin"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/zimmen/gulp-twig/raw/master/LICENSE"
+    }
+  ]
 }
