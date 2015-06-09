@@ -55,6 +55,12 @@ module.exports = function (options) {
             });
         }
 
+        if (options.filters) {
+            options.filters.forEach(function (filter) {
+                Twig.extendFilter(filter.name, filter.func);
+            });
+        }
+
         if(options.extend) {
             Twig.extend(options.extend);
             delete options.extend;
