@@ -111,7 +111,7 @@ gulp.task('default', ['compile']);
 
 **trace**: [true|false] *enables tracing info logging (defaults to false)*
 
-**extend**: [function] *extends Twig with new tags types. [Read more here](https://github.com/justjohn/twig.js/wiki/Extending-twig.js-With-Custom-Tags)*
+**extend**: [function (Twig)] *extends Twig with new tags types. The Twig attribute is Twig.js's internal object. [Read more here](https://github.com/justjohn/twig.js/wiki/Extending-twig.js-With-Custom-Tags)*
 
 **functions**: [array] *extends Twig with given function objects. (default to undefined)*
 ```javascript
