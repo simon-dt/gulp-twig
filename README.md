@@ -97,6 +97,7 @@ gulp.task('default', ['compile']);
 ```
 
 ### Options:
+**data**: [object| *The data that is exposed in the twig files. Or use gulp-data to pipe files directly into gulp-twig*
 
 **base**: [string] *sets the views base folder. Extends can be loaded relative to this path*
 
