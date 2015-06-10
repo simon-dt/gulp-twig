@@ -123,6 +123,18 @@ gulp.task('default', ['compile']);
     }
 ]
 ```
+
+**filters**: [array] *extends Twig with given filter objects. (default to undefined)*
+```javascript
+[
+    {
+        name: "nameOfFilter",
+        func: function (args) {
+            return "the filter";
+        }
+    }
+]
+```
 ### LICENSE
 
 (MIT License)
