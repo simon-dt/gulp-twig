@@ -57,7 +57,7 @@ module.exports = function (options) {
 
     function modifyContents(file, cb) {
 
-        var data = typeof options.data === 'function' ? options.data(file) : options.data;
+        var data = file.data || (typeof options.data === 'function' ? options.data(file) : options.data);
 
         if (file.isNull()) {
             return cb(null, file);
