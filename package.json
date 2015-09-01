@@ -10,12 +10,13 @@
   "author": "Simon de Turck <simon@zimmen.com> (http://www.zimmen.com)",
   "main": "./index.js",
   "dependencies": {
+    "glob": "5.0.6",
     "gulp-util": "^2.2.14",
+    "lodash.isarray": "^3.0.4",
+    "lodash.merge": "^3.3.2",
     "map-stream": "^0.1.0",
     "replace-ext": "0.0.1",
-    "twig": "0.8.2",
-    "lodash": "3.8.0",
-    "glob": "5.0.6"
+    "twig": "0.8.2"
   },
   "devDependencies": {
     "mocha": "*",

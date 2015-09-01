@@ -4,7 +4,10 @@ var rext = require('replace-ext');
 var gutil = require('gulp-util');
 var glob = require('glob');
 var fs = require('fs');
-var _ = require('lodash');
+var _ = {
+    merge: require('lodash.merge'),
+    isArray: require('lodash.isarray')
+};
 
 const PLUGIN_NAME = 'gulp-twig';
 
