@@ -13,6 +13,7 @@ var twig = Twig.twig,
 
 module.exports = function (options) {
     'use strict';
+
     options = _.merge({
         data: {},
         includes: null,
