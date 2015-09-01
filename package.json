@@ -16,7 +16,7 @@
     "lodash.merge": "^3.3.2",
     "map-stream": "^0.1.0",
     "replace-ext": "0.0.1",
-    "twig": "0.8.2"
+    "twig": "git://github.com/d-simon/twig.js.git#528dd7ce36e4bdb616c58b786b1a59e646fa24f2"
   },
   "devDependencies": {
     "mocha": "*",
