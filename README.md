@@ -111,6 +111,21 @@ gulp.task('default', ['compile']);
 
 **trace**: [true|false] *enables tracing info logging (defaults to false)*
 
+**includes**: [string|array] *used to pass inline includes to Twig. (defaults to undefined) [Read more here](https://github.com/justjohn/twig.js/wiki#inline-templates) *
+
+**getIncludesId**: [function] *can be used to implement a custom getter for the id (essentially the path) for inline templates passed in `includes`. (defaults to returning `filePath`) [Read more here](https://github.com/justjohn/twig.js/wiki#inline-templates)*
+```javascript
+// default
+function(filePath) {
+    return filePath;
+}
+
+// example implementation
+function(filePath) {
+    return path.relative('./my/source/path', filePath);
+}
+```
+
 **extend**: [function (Twig)] *extends Twig with new tags types. The Twig attribute is Twig.js's internal object. [Read more here](https://github.com/justjohn/twig.js/wiki/Extending-twig.js-With-Custom-Tags)*
 
 **functions**: [array] *extends Twig with given function objects. (default to undefined)*

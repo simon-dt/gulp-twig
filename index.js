@@ -1,18 +1,63 @@
+var Twig = require('twig');
 var map = require('map-stream');
 var rext = require('replace-ext');
 var gutil = require('gulp-util');
+var glob = require('glob');
+var fs = require('fs');
+var _ = {
+    merge: require('lodash.merge'),
+    isArray: require('lodash.isarray')
+};
 
 const PLUGIN_NAME = 'gulp-twig';
 
+var twig = Twig.twig,
+    includeCache = {};
+
 module.exports = function (options) {
     'use strict';
-    if (!options) {
-        options = {};
+
+    options = _.merge({
+        data: {},
+        includes: null,
+        getIncludeId: function(filePath) {
+            return filePath;
+        }
+    }, options || {});
+
+    // Register includes
+    // Thanks to https://github.com/backflip/gulp-twig
+    if (options.includes) {
+        if (!_.isArray(options.includes)) {
+            options.includes = [options.includes];
+        }
+
+        options.includes.forEach(function(pattern) {
+            glob.sync(pattern).forEach(function(file) {
+                var id = options.getIncludeId(file),
+                    changed = fs.statSync(file).mtime,
+                    content;
+
+                // Skip registering if include has not changed since last time
+                if (includeCache[id] && includeCache[id].getTime() === changed.getTime()) {
+                    return;
+                }
+
+                includeCache[id] = changed;
+
+                content = fs.readFileSync(file, 'utf8').toString();
+
+                twig({
+                    id: id,
+                    data: content
+                });
+            });
+        });
     }
 
     function modifyContents(file, cb) {
 
-        var data = file.data || options.data || {};
+        var data = file.data || (typeof options.data === 'function' ? options.data(file) : options.data);
 
         if (file.isNull()) {
             return cb(null, file);
@@ -21,7 +66,7 @@ module.exports = function (options) {
         if (file.isStream()) {
             return cb(new gutil.PluginError(PLUGIN_NAME, "Streaming not supported!"));
         }
-        
+
         data._file   = file;
         if(options.changeExt == false){
             data._target = {
@@ -35,10 +80,9 @@ module.exports = function (options) {
             }
         }
 
-        var Twig = require('twig'),
-            twig = Twig.twig,
-            twigOpts = {
-                path: file.path,
+        var twigOpts = {
+                allowInlineIncludes: true,
+                data: file.contents.toString(),
                 async: false
             },
             template;
