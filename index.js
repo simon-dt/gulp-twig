@@ -23,10 +23,17 @@ module.exports = function (options) {
         }
         
         data._file   = file;
-        data._target = {
-            path: rext(file.path, '.html'),
-            relative: rext(file.relative, '.html')
-        };
+        if(options.changeExt == false){
+            data._target = {
+                 path: file.path,
+                 relative: file.relative
+             }           
+        }else{
+            data._target = {
+                path: rext(file.path, '.html'),
+                relative: rext(file.relative, '.html')
+            }
+        }
 
         var Twig = require('twig'),
             twig = Twig.twig,
@@ -83,7 +90,7 @@ module.exports = function (options) {
             return cb(new gutil.PluginError(PLUGIN_NAME, e));
         }
 
-        file.path = rext(file.path, '.html');
+        file.path = data._target.path;
         cb(null, file);
     }
 
