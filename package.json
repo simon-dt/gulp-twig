@@ -10,7 +10,7 @@
   "author": "Simon de Turck <simon@zimmen.com> (http://www.zimmen.com)",
   "main": "./index.js",
   "dependencies": {
-    "gulp-util": "^2.2.14",
+    "gulp-util": "^3.0.7",
     "map-stream": "^0.1.0",
     "replace-ext": "0.0.1",
     "twig": "0.8.6"
