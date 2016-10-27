@@ -52,6 +52,9 @@ module.exports = function (options) {
         if (options.base !== undefined) {
             twigOpts.base = options.base;
         }
+        if (options.namespaces !== undefined) {
+            twigOpts.namespaces = options.namespaces;
+        }
         if (options.cache !== true) {
             Twig.cache(false);
         }
