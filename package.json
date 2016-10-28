@@ -13,7 +13,7 @@
     "gulp-util": "^3.0.7",
     "map-stream": "^0.1.0",
     "replace-ext": "0.0.1",
-    "twig": "0.9.5"
+    "twig": "0.10.0"
   },
   "devDependencies": {
     "mocha": "*",
