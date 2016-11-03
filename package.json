@@ -1,7 +1,7 @@
 {
   "name": "gulp-twig",
   "description": "Twig.js plugin for gulp.js (gulpjs.com)",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "homepage": "http://github.com/zimmen/gulp-twig",
   "repository": {
     "type": "git",
