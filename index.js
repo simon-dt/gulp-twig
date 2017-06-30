@@ -21,7 +21,7 @@ module.exports = function (options) {
         if (file.isStream()) {
             return cb(new gutil.PluginError(PLUGIN_NAME, "Streaming not supported!"));
         }
-        
+
         data._file   = file;
         if(options.changeExt == false){
             data._target = {
@@ -30,8 +30,8 @@ module.exports = function (options) {
              }           
         }else{
             data._target = {
-                path: rext(file.path, '.html'),
-                relative: rext(file.relative, '.html')
+                path: rext(file.path, options.extname || '.html'),
+                relative: rext(file.relative, options.extname || '.html')
             }
         }
 

@@ -95,4 +95,23 @@ describe('gulp-twig', function () {
         twg.write(fakeFile);
     });
 
+  it('should consider extname option', function (done) {
+    var twg = twig({
+      extname: '.md'
+    });
+
+    var fakeFile = new gutil.File({
+      base: 'test/',
+      cwd: 'test/',
+      path: path.join(__dirname, '/templates/file.twig'),
+      contents: fs.readFileSync(__dirname + '/templates/file.twig')
+    });
+
+    twg.on('data', function (newFile) {
+      path.extname(newFile.path).should.equal('.md');
+      done();
+    });
+    twg.write(fakeFile);
+  });
+
 });

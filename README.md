@@ -113,6 +113,8 @@ gulp.task('default', ['compile']);
 
 **extend**: [function (Twig)] *extends Twig with new tags types. The Twig attribute is Twig.js's internal object. [Read more here](https://github.com/justjohn/twig.js/wiki/Extending-twig.js-With-Custom-Tags)*
 
+**extname**: [string] *output file extension including the '.' like path.extname(filename)*
+
 **functions**: [array] *extends Twig with given function objects. (default to undefined)*
 ```javascript
 [
