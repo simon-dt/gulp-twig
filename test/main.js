@@ -114,4 +114,42 @@ describe('gulp-twig', function () {
     twg.write(fakeFile);
   });
 
+  it('should drop extname option when passing "falsy"', function (done) {
+    var twg = twig({
+      extname: false
+    });
+
+    var fakeFile = new gutil.File({
+      base: 'test/',
+      cwd: 'test/',
+      path: path.join(__dirname, '/templates/file.twig'),
+      contents: fs.readFileSync(__dirname + '/templates/file.twig')
+    });
+
+    twg.on('data', function (newFile) {
+      path.basename(newFile.path).should.equal('file');
+      done();
+    });
+    twg.write(fakeFile);
+  });
+
+  it('should inherit extname option when passing true', function (done) {
+    var twg = twig({
+      extname: true
+    });
+
+    var fakeFile = new gutil.File({
+      base: 'test/',
+      cwd: 'test/',
+      path: path.join(__dirname, '/templates/file.twig'),
+      contents: fs.readFileSync(__dirname + '/templates/file.twig')
+    });
+
+    twg.on('data', function (newFile) {
+      path.basename(newFile.path).should.equal('file.twig');
+      done();
+    });
+    twg.write(fakeFile);
+  });
+
 });
