@@ -6,9 +6,10 @@ const PLUGIN_NAME = 'gulp-twig';
 
 module.exports = function (options) {
     'use strict';
-    if (!options) {
-        options = {};
-    }
+    options = Object.assign({}, {
+      changeExt: true,
+      extname: '.html'
+    }, options || {});
 
     function modifyContents(file, cb) {
 
@@ -21,17 +22,17 @@ module.exports = function (options) {
         if (file.isStream()) {
             return cb(new gutil.PluginError(PLUGIN_NAME, "Streaming not supported!"));
         }
-        
+
         data._file   = file;
-        if(options.changeExt == false){
+        if(options.changeExt === false || options.extname === true){
             data._target = {
                  path: file.path,
                  relative: file.relative
              }           
         }else{
             data._target = {
-                path: rext(file.path, '.html'),
-                relative: rext(file.relative, '.html')
+                path: rext(file.path, options.extname || ''),
+                relative: rext(file.relative, options.extname || '')
             }
         }
 
