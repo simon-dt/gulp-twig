@@ -152,4 +152,26 @@ describe('gulp-twig', function () {
     twg.write(fakeFile);
   });
 
+  it('should use file contents if useFileContents option is enabled', function (done) {
+    var twg = twig({
+      useFileContents: true,
+      data: {
+        title: 'twig',
+      },
+    });
+
+    var fakeFile = new gutil.File({
+      base: 'test/',
+      cwd: 'test/',
+      path: path.join(__dirname, '/templates/file.twig'),
+      contents: new Buffer('{{ title }}'),
+    });
+
+    twg.on('data', function (newFile) {
+      String(newFile.contents).should.equal('twig');
+      done();
+    });
+    twg.write(fakeFile);
+  });
+
 });

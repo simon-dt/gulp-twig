@@ -115,6 +115,8 @@ gulp.task('default', ['compile']);
 
 **extname**: [string|true|false] *output file extension including the '.' like path.extname(filename). Use `true` to keep source extname and a "falsy" value to drop the file extension*
 
+**useFileContents**: [true|false] *use file contents instead of file path (defaults to false) [Read more here](https://github.com/zimmen/gulp-twig/issues/30)*
+
 **functions**: [array] *extends Twig with given function objects. (default to undefined)*
 ```javascript
 [
