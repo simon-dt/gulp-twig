@@ -1,6 +1,7 @@
 var map = require('map-stream');
 var rext = require('replace-ext');
-var gutil = require('gulp-util');
+var fancyLog = require('fancy-log');
+var PluginError = require('plugin-error');
 
 const PLUGIN_NAME = 'gulp-twig';
 
@@ -20,7 +21,7 @@ module.exports = function (options) {
         }
 
         if (file.isStream()) {
-            return cb(new gutil.PluginError(PLUGIN_NAME, "Streaming not supported!"));
+            return cb(new PluginError(PLUGIN_NAME, 'Streaming not supported!'));
         }
 
         data._file   = file;
@@ -28,7 +29,7 @@ module.exports = function (options) {
             data._target = {
                  path: file.path,
                  relative: file.relative
-             }           
+             }
         }else{
             data._target = {
                 path: rext(file.path, options.extname || ''),
@@ -83,7 +84,7 @@ module.exports = function (options) {
             file.contents = new Buffer(template.render(data));
         }catch(e){
             if (options.errorLogToConsole) {
-                gutil.log(PLUGIN_NAME + ' ' + e);
+                fancyLog(PLUGIN_NAME + ' ' + e);
                 return cb();
             }
 
@@ -91,7 +92,7 @@ module.exports = function (options) {
                 options.onError(e);
                 return cb();
             }
-            return cb(new gutil.PluginError(PLUGIN_NAME, e));
+            return cb(new PluginError(PLUGIN_NAME, e));
         }
 
         file.path = data._target.path;

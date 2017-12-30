@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var should = require('should');
-var gutil = require('gulp-util');
+var Vinyl = require('vinyl');
 var twig = require('../');
 
 require('mocha');
@@ -15,7 +15,7 @@ describe('gulp-twig', function () {
             }
         });
 
-        var fakeFile = new gutil.File({
+        var fakeFile = new Vinyl({
             base: 'test/',
             cwd: 'test/',
             path: path.join(__dirname, '/templates/file.twig'),
@@ -35,7 +35,7 @@ describe('gulp-twig', function () {
     it('should compile twig templates to html files without options', function (done) {
         var twg = twig();
 
-        var fakeFile = new gutil.File({
+        var fakeFile = new Vinyl({
             base: 'test/',
             cwd: 'test/',
             path: path.join(__dirname, '/templates/file.twig'),
@@ -55,7 +55,7 @@ describe('gulp-twig', function () {
     it('should return \'null\' file when no file put in', function (done) {
         var twg = twig();
 
-        var fakeFile = new gutil.File({
+        var fakeFile = new Vinyl({
             base: 'test/',
             cwd: 'test/'
         });
@@ -73,7 +73,7 @@ describe('gulp-twig', function () {
     it('should accept data from file.data', function (done) {
         var twg = twig();
 
-        var fakeFile = new gutil.File({
+        var fakeFile = new Vinyl({
             base: 'test/',
             cwd: 'test/',
             path: path.join(__dirname, '/templates/file.twig'),
@@ -100,7 +100,7 @@ describe('gulp-twig', function () {
       extname: '.md'
     });
 
-    var fakeFile = new gutil.File({
+    var fakeFile = new Vinyl({
       base: 'test/',
       cwd: 'test/',
       path: path.join(__dirname, '/templates/file.twig'),
@@ -119,7 +119,7 @@ describe('gulp-twig', function () {
       extname: false
     });
 
-    var fakeFile = new gutil.File({
+    var fakeFile = new Vinyl({
       base: 'test/',
       cwd: 'test/',
       path: path.join(__dirname, '/templates/file.twig'),
@@ -138,7 +138,7 @@ describe('gulp-twig', function () {
       extname: true
     });
 
-    var fakeFile = new gutil.File({
+    var fakeFile = new Vinyl({
       base: 'test/',
       cwd: 'test/',
       path: path.join(__dirname, '/templates/file.twig'),
