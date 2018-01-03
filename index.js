@@ -13,8 +13,7 @@ module.exports = function (options) {
     }, options || {});
 
     function modifyContents(file, cb) {
-
-        var data = file.data || options.data || {};
+        var data = file.data || Object.assign({}, options.data);
 
         if (file.isNull()) {
             return cb(null, file);
