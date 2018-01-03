@@ -1,6 +1,6 @@
 var map = require('map-stream');
 var rext = require('replace-ext');
-var fancyLog = require('fancy-log');
+var log = require('fancy-log');
 var PluginError = require('plugin-error');
 
 const PLUGIN_NAME = 'gulp-twig';
@@ -84,7 +84,7 @@ module.exports = function (options) {
             file.contents = new Buffer(template.render(data));
         }catch(e){
             if (options.errorLogToConsole) {
-                fancyLog(PLUGIN_NAME + ' ' + e);
+                log(PLUGIN_NAME + ' ' + e);
                 return cb();
             }
 
