@@ -9,7 +9,9 @@ module.exports = function (options) {
     'use strict';
     options = Object.assign({}, {
       changeExt: true,
-      extname: '.html'
+      extname: '.html',
+      useFileContents: false,
+
     }, options || {});
 
     function modifyContents(file, cb) {
@@ -75,6 +77,11 @@ module.exports = function (options) {
         if(options.extend) {
             Twig.extend(options.extend);
             delete options.extend;
+        }
+
+        if (options.useFileContents) {
+          var fileContents = file.contents.toString();
+          twigOpts.data = fileContents
         }
 
         template = twig(twigOpts);
