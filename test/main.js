@@ -160,7 +160,7 @@ describe('gulp-twig', function () {
       },
     });
 
-    var fakeFile = new gutil.File({
+    var fakeFile = new Vinyl({
       base: 'test/',
       cwd: 'test/',
       path: path.join(__dirname, '/templates/file.twig'),
