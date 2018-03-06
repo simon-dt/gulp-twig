@@ -16,6 +16,7 @@ module.exports = function (options) {
 
     function modifyContents(file, cb) {
         var data = file.data || Object.assign({}, options.data);
+        var target = {};
 
         if (file.isNull()) {
             return cb(null, file);
@@ -25,14 +26,13 @@ module.exports = function (options) {
             return cb(new PluginError(PLUGIN_NAME, 'Streaming not supported!'));
         }
 
-        data._file   = file;
         if(options.changeExt === false || options.extname === true){
-            data._target = {
+            target = {
                  path: file.path,
                  relative: file.relative
              }
         }else{
-            data._target = {
+            target = {
                 path: rext(file.path, options.extname || ''),
                 relative: rext(file.relative, options.extname || '')
             }
@@ -101,7 +101,7 @@ module.exports = function (options) {
             return cb(new PluginError(PLUGIN_NAME, e));
         }
 
-        file.path = data._target.path;
+        file.path = target.path;
         cb(null, file);
     }
 
