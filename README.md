@@ -117,6 +117,7 @@ gulp.task("default", ["compile"]);
 
 -**trace**: [true|false] _enables tracing info logging (defaults to false)_
 
+-**strict_variables**: [true|false] _If set to false, Twig will silently ignore invalid variables (variables and or attributes/methods that do not exist) and replace them with a null value. When set to true, Twig throws an exception instead (default to false)._
 
 ```javascript
 [
