@@ -1,4 +1,4 @@
-var map = require('map-stream');
+var through2 = require('through2');
 var rext = require('replace-ext');
 var log = require('fancy-log');
 var PluginError = require('plugin-error');
@@ -14,15 +14,15 @@ module.exports = function (options) {
 
     }, options || {});
 
-    function modifyContents(file, cb) {
+    function modifyContents(file, encoding, callback) {
         var data = file.data || Object.assign({}, options.data);
 
         if (file.isNull()) {
-            return cb(null, file);
+            return callback(null, file);
         }
 
         if (file.isStream()) {
-            return cb(new PluginError(PLUGIN_NAME, 'Streaming not supported!'));
+            return callback(new PluginError(PLUGIN_NAME, 'Streaming not supported!'));
         }
 
         data._file   = file;
@@ -91,19 +91,19 @@ module.exports = function (options) {
         }catch(e){
             if (options.errorLogToConsole) {
                 log(PLUGIN_NAME + ' ' + e);
-                return cb();
+                return callback();
             }
 
             if (typeof options.onError === 'function') {
                 options.onError(e);
-                return cb();
+                return callback();
             }
-            return cb(new PluginError(PLUGIN_NAME, e));
+            return callback(new PluginError(PLUGIN_NAME, e));
         }
 
         file.path = data._target.path;
-        cb(null, file);
+        callback(null, file);
     }
 
-    return map(modifyContents);
+    return through2.obj(modifyContents);
 };
