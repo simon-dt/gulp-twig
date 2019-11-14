@@ -10,11 +10,11 @@
   "author": "Simon de Turck <simon@zimmen.com> (http://www.zimmen.com)",
   "main": "./index.js",
   "dependencies": {
-    "fancy-log": "^1.3.2",
+    "fancy-log": "^1.3.3",
     "map-stream": "^0.1.0",
-    "plugin-error": "^0.1.2",
+    "plugin-error": "^1.0.1",
     "replace-ext": "^1.0.0",
-    "twig": "^1.10.5"
+    "twig": "^1.14.0"
   },
   "devDependencies": {
     "mocha": "*",
