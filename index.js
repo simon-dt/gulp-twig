@@ -69,6 +69,7 @@ module.exports = function(options) {
 
         const template = twig({
             ...twigParameters,
+            rethrow: true,
             async: false,
             path: file.path,
             data: useFileContents ? file.contents.toString() : undefined,
