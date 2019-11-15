@@ -70,25 +70,25 @@ npm install gulp-twig --save
 ```
 
 ```javascript
-var gulp = require("gulp");
+var gulp = require('gulp');
 
-gulp.task("compile", function() {
-    "use strict";
-    var twig = require("gulp-twig");
+gulp.task('compile', function() {
+    'use strict';
+    var twig = require('gulp-twig');
     return gulp
-        .src("./index.twig")
+        .src('./index.twig')
         .pipe(
             twig({
                 data: {
-                    title: "Gulp and Twig",
-                    benefits: ["Fast", "Flexible", "Secure"]
-                }
-            })
+                    title: 'Gulp and Twig',
+                    benefits: ['Fast', 'Flexible', 'Secure'],
+                },
+            }),
         )
-        .pipe(gulp.dest("./"));
+        .pipe(gulp.dest('./'));
 });
 
-gulp.task("default", ["compile"]);
+gulp.task('default', ['compile']);
 ```
 
 ### Options:
@@ -122,11 +122,11 @@ gulp.task("default", ["compile"]);
 ```javascript
 [
     {
-        name: "nameOfFunction",
+        name: 'nameOfFunction',
         func: function(args) {
-            return "the function";
-        }
-    }
+            return 'the function';
+        },
+    },
 ];
 ```
 
@@ -135,11 +135,11 @@ gulp.task("default", ["compile"]);
 ```javascript
 [
     {
-        name: "nameOfFilter",
+        name: 'nameOfFilter',
         func: function(args) {
-            return "the filter";
-        }
-    }
+            return 'the filter';
+        },
+    },
 ];
 ```
 
