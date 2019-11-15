@@ -107,17 +107,17 @@ gulp.task("default", ["compile"]);
 
 **useFileContents**: [true|false] _use file contents instead of file path (defaults to false) [Read more here](https://github.com/zimmen/gulp-twig/issues/30)_
 
-**functions**: [array] _extends Twig with given function objects. (default to undefined)_
-
 **twigParameters**: [object] _Parameters for creating a Twig template._
 
--**base**: [string] _sets the views base folder. Extends can be loaded relative to this path_
+- **base**: [string] _sets the views base folder. Extends can be loaded relative to this path_
 
--**debug**: [true|false] _enables debug info logging (defaults to false)_
+- **debug**: [true|false] _enables debug info logging (defaults to false)_
 
--**trace**: [true|false] _enables tracing info logging (defaults to false)_
+- **trace**: [true|false] _enables tracing info logging (defaults to false)_
 
--**strict_variables**: [true|false] _If set to false, Twig will silently ignore invalid variables (variables and or attributes/methods that do not exist) and replace them with a null value. When set to true, Twig throws an exception instead (default to false)._
+- **strict_variables**: [true|false] _If set to false, Twig will silently ignore invalid variables (variables and or attributes/methods that do not exist) and replace them with a null value. When set to true, Twig throws an exception instead (default to false)._
+
+**functions**: [array] _extends Twig with given function objects. (default to undefined)_
 
 ```javascript
 [
