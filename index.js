@@ -1,12 +1,12 @@
-const through2 = require("through2");
-const rext = require("replace-ext");
-const log = require("fancy-log");
-const PluginError = require("plugin-error");
+const through2 = require('through2');
+const rext = require('replace-ext');
+const log = require('fancy-log');
+const PluginError = require('plugin-error');
 
-const PLUGIN_NAME = "gulp-twig";
+const PLUGIN_NAME = 'gulp-twig';
 
 module.exports = function(options) {
-    "use strict";
+    'use strict';
 
     function modifyContents(file, encoding, callback) {
         if (file.isNull()) {
@@ -14,14 +14,12 @@ module.exports = function(options) {
         }
 
         if (file.isStream()) {
-            return callback(
-                new PluginError(PLUGIN_NAME, "Streaming not supported!")
-            );
+            return callback(new PluginError(PLUGIN_NAME, 'Streaming not supported!'));
         }
 
         const {
             changeExt = true,
-            extname = ".html",
+            extname = '.html',
             useFileContents = false,
             twigParameters = {},
             data: optionsData,
@@ -30,7 +28,7 @@ module.exports = function(options) {
             filters,
             extend,
             errorLogToConsole,
-            onError
+            onError,
         } = options || {};
 
         const data = file.data || optionsData || {};
@@ -39,14 +37,14 @@ module.exports = function(options) {
             changeExt === false || extname === true
                 ? {
                       path: file.path,
-                      relative: file.relative
+                      relative: file.relative,
                   }
                 : {
-                      path: rext(file.path, extname || ""),
-                      relative: rext(file.relative, extname || "")
+                      path: rext(file.path, extname || ''),
+                      relative: rext(file.relative, extname || ''),
                   };
 
-        const Twig = require("twig");
+        const Twig = require('twig');
         const { twig } = Twig;
 
         if (cache !== true) {
@@ -73,7 +71,7 @@ module.exports = function(options) {
             ...twigParameters,
             async: false,
             path: file.path,
-            data: useFileContents ? file.contents.toString() : undefined
+            data: useFileContents ? file.contents.toString() : undefined,
         });
 
         try {
@@ -81,16 +79,16 @@ module.exports = function(options) {
                 template.render({
                     ...data,
                     _target: target,
-                    _file: file
-                })
+                    _file: file,
+                }),
             );
         } catch (e) {
             if (errorLogToConsole) {
-                log(PLUGIN_NAME + " " + e);
+                log(PLUGIN_NAME + ' ' + e);
                 return callback();
             }
 
-            if (typeof onError === "function") {
+            if (typeof onError === 'function') {
                 onError(e);
                 return callback();
             }
