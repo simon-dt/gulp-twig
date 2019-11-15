@@ -45,7 +45,7 @@ npm install gulp-twig --save
     </p>
     <ul>
         {% for value in benefits %}
-        <li>{{ value }}</li>
+            <li>{{ value }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
